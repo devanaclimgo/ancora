@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import lotusIcon from "../../assets/lotus-icon.png"
 
 const navLinks = [
   { label: "O que é PLEASE?", href: "#please" },
@@ -35,12 +36,14 @@ export function Header() {
       <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-4">
         <div
           onClick={() => navigate("/")}
-          className="flex items-center gap-2 cursor-pointer"
+          className="flex items-center gap-1 cursor-pointer"
         >
-          <div className="h-8 w-8 rounded-lg bg-[#7F679C] flex items-center justify-center">
-            <span className="text-white font-bold text-sm">P</span>
+          <div className="h-8 w-8 rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-sm">
+              <img src={lotusIcon} alt="Lotus Icon" className="h-8 w-8" />
+            </span>
           </div>
-          <span className="font-semibold text-lg">PLEASE</span>
+          <span className="font-semibold text-lg underline underline-offset-4 decoration-[#7F679C]">Âncora</span>
         </div>
 
         <nav className="hidden md:flex items-center gap-8">
