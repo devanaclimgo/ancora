@@ -2,6 +2,7 @@ import { useState } from "react";
 import api from "../api/axios";
 import { useNavigate, Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
+import lotusIcon from "../assets/lotus-icon.png";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -46,15 +47,22 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary to-white px-6">
       <div className="w-full max-w-md">
         <div className="mb-8 text-center">
-          <Link to="/" className="inline-flex items-center gap-2 mb-4">
-            <div className="h-10 w-10 rounded-xl bg-primary flex items-center justify-center">
-              <span className="text-white font-bold">W</span>
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 mb-4 bg-white/80 px-3 py-2 rounded-xl"
+          >
+            <div className="h-8 w-8 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm">
+                <img src={lotusIcon} alt="Lotus Icon" className="h-8 w-8" />
+              </span>
             </div>
-            <span className="font-bold text-xl text-gray-800">WiseMind</span>
+            <span className="font-semibold text-lg underline underline-offset-4 decoration-primary">
+              Âncora
+            </span>
           </Link>
 
-          <h1 className="text-2xl font-bold text-gray-800">Welcome back</h1>
-          <p className="mt-1 text-sm text-gray-500">
+          <h1 className="text-2xl font-bold text-gray-200">Welcome back</h1>
+          <p className="mt-1 text-sm text-gray-100">
             Continue your emotional tracking journey
           </p>
         </div>
