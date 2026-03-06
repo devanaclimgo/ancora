@@ -30,7 +30,7 @@ export default function Login() {
       }
 
       navigate("/dashboard");
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       if (error.response?.status === 401) {
         setErrorMessage("Invalid email/username or password.");
@@ -43,22 +43,17 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-lavender-50 to-white px-6">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-white px-6">
       <div className="w-full max-w-md">
-        
         <div className="mb-8 text-center">
           <Link to="/" className="inline-flex items-center gap-2 mb-4">
-            <div className="h-10 w-10 rounded-xl bg-lavender-500 flex items-center justify-center">
+            <div className="h-10 w-10 rounded-xl bg-primary-500 flex items-center justify-center">
               <span className="text-white font-bold">W</span>
             </div>
-            <span className="font-bold text-xl text-gray-800">
-              WiseMind
-            </span>
+            <span className="font-bold text-xl text-gray-800">WiseMind</span>
           </Link>
 
-          <h1 className="text-2xl font-bold text-gray-800">
-            Welcome back
-          </h1>
+          <h1 className="text-2xl font-bold text-gray-800">Welcome back</h1>
           <p className="mt-1 text-sm text-gray-500">
             Continue your emotional tracking journey
           </p>
@@ -84,7 +79,7 @@ export default function Login() {
               onChange={(e) => setLogin(e.target.value)}
               placeholder="you@email.com"
               className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm
-              focus:outline-none focus:ring-2 focus:ring-lavender-400 focus:border-transparent
+              focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent
               transition-all"
             />
           </div>
@@ -101,7 +96,7 @@ export default function Login() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Your password"
                 className="w-full rounded-xl border border-gray-200 px-4 py-3 pr-11 text-sm
-                focus:outline-none focus:ring-2 focus:ring-lavender-400 focus:border-transparent
+                focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent
                 transition-all"
               />
 
@@ -110,11 +105,7 @@ export default function Login() {
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
               >
-                {showPassword ? (
-                  <EyeOff size={18} />
-                ) : (
-                  <Eye size={18} />
-                )}
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
             </div>
           </div>
@@ -122,8 +113,8 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-lavender-500 text-white py-3 rounded-xl font-semibold
-            hover:bg-lavender-600 active:scale-95
+            className="w-full bg-primary-500 text-white py-3 rounded-xl font-semibold
+            hover:bg-primary-600 active:scale-95
             transition-all duration-200"
           >
             {loading ? "Logging in..." : "Login"}
@@ -133,7 +124,7 @@ export default function Login() {
             Don’t have an account?{" "}
             <span
               onClick={() => navigate("/signup")}
-              className="text-lavender-500 cursor-pointer hover:underline font-medium"
+              className="text-primary-500 cursor-pointer hover:underline font-medium"
             >
               Sign up
             </span>
