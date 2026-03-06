@@ -16,23 +16,19 @@ export default function WeekList({ weeks }: WeekListProps) {
   return (
     <div className="space-y-5">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-gray-800">
-          Suas semanas
-        </h2>
+        <h2 className="text-lg font-semibold text-gray-800">Suas semanas</h2>
       </div>
 
       <Link
         to="/weeks/new"
-        className="flex items-center gap-3 rounded-2xl border-2 border-dashed border-gray-300 p-5 hover:border-teal-500 hover:bg-teal-50 transition-all group"
+        className="flex items-center gap-3 rounded-2xl border-2 border-dashed border-gray-300 p-5 hover:border-ring-500 hover:bg-ring-50 transition-all group"
       >
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-100 text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-ring-100 text-ring-600 group-hover:bg-ring-600 group-hover:text-white transition-colors">
           <Plus className="h-5 w-5" />
         </div>
 
         <div>
-          <p className="font-medium text-gray-800 text-sm">
-            Criar nova semana
-          </p>
+          <p className="font-medium text-gray-800 text-sm">Criar nova semana</p>
           <p className="text-xs text-gray-500">
             Inicie um novo registro semanal
           </p>
