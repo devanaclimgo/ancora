@@ -62,19 +62,21 @@ export default function Signup() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary to-white px-6">
       <div className="w-full max-w-md">
         <div className="mb-8 text-center">
-          <Link to="/" className="inline-flex items-center gap-2 mb-4">
+          <Link to="/" className="inline-flex items-center gap-2 mb-4 bg-white/80 px-3 py-2 rounded-xl">
             <div className="h-8 w-8 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">
-              <img src={lotusIcon} alt="Lotus Icon" className="h-8 w-8" />
+              <span className="text-white font-bold text-sm">
+                <img src={lotusIcon} alt="Lotus Icon" className="h-8 w-8" />
+              </span>
+            </div>
+            <span className="font-semibold text-lg underline underline-offset-4 decoration-primary">
+              Âncora
             </span>
-          </div>
-          <span className="font-semibold text-lg underline underline-offset-4 decoration-primary">Âncora</span>
           </Link>
 
-          <h1 className="text-2xl font-bold text-gray-800">
+          <h1 className="text-2xl font-bold text-gray-200">
             Create your account
           </h1>
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="mt-1 text-sm text-gray-100">
             Start your weekly emotional tracking
           </p>
         </div>
