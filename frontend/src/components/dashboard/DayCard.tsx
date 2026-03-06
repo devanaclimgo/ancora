@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 import {
   Moon,
   Utensils,
@@ -9,46 +9,78 @@ import {
   ChevronDown,
   Check,
   Save,
-} from "lucide-react"
+} from "lucide-react";
 import { cn } from "../../lib/cn";
 
 const categories = [
-  { key: "sono", label: "Sono", icon: Moon, placeholder: "Ex: Dormi 8h, qualidade boa..." },
-  { key: "alimentacao", label: "Alimentacao", icon: Utensils, placeholder: "Ex: 3 refeicoes, poucas frutas..." },
-  { key: "exercicio", label: "Exercicio", icon: Dumbbell, placeholder: "Ex: Caminhada 30min, yoga..." },
-  { key: "saude", label: "Saude fisica", icon: Stethoscope, placeholder: "Ex: Tomei remedios, consulta marcada..." },
-  { key: "substancias", label: "Substancias", icon: Ban, placeholder: "Ex: Sem alcool, 2 cafes..." },
-  { key: "extra", label: "Anotacoes", icon: FileText, placeholder: "Notas extras do dia..." },
-]
+  {
+    key: "sono",
+    label: "Sono",
+    icon: Moon,
+    placeholder: "Ex: Dormi 8h, qualidade boa...",
+  },
+  {
+    key: "alimentacao",
+    label: "Alimentacao",
+    icon: Utensils,
+    placeholder: "Ex: 3 refeicoes, poucas frutas...",
+  },
+  {
+    key: "exercicio",
+    label: "Exercicio",
+    icon: Dumbbell,
+    placeholder: "Ex: Caminhada 30min, yoga...",
+  },
+  {
+    key: "saude",
+    label: "Saude fisica",
+    icon: Stethoscope,
+    placeholder: "Ex: Tomei remedios, consulta marcada...",
+  },
+  {
+    key: "substancias",
+    label: "Substancias",
+    icon: Ban,
+    placeholder: "Ex: Sem alcool, 2 cafes...",
+  },
+  {
+    key: "extra",
+    label: "Anotacoes",
+    icon: FileText,
+    placeholder: "Notas extras do dia...",
+  },
+];
 
 interface DayCardProps {
-  dayNumber: number
-  dayLabel: string
+  dayNumber: number;
+  dayLabel: string;
 }
 
 export function DayCard({ dayNumber, dayLabel }: DayCardProps) {
-  const [expanded, setExpanded] = useState(false)
-  const [saved, setSaved] = useState(false)
-  const [values, setValues] = useState<Record<string, string>>({})
+  const [expanded, setExpanded] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [values, setValues] = useState<Record<string, string>>({});
 
-  const filledCount = Object.values(values).filter((v) => v.trim().length > 0).length
-  const isFilled = filledCount > 0
+  const filledCount = Object.values(values).filter(
+    (v) => v.trim().length > 0,
+  ).length;
+  const isFilled = filledCount > 0;
 
   const handleChange = (key: string, value: string) => {
-    setValues((prev) => ({ ...prev, [key]: value }))
-    setSaved(false)
-  }
+    setValues((prev) => ({ ...prev, [key]: value }));
+    setSaved(false);
+  };
 
   const handleSave = () => {
-    setSaved(true)
-    setTimeout(() => setSaved(false), 2000)
-  }
+    setSaved(true);
+    setTimeout(() => setSaved(false), 2000);
+  };
 
   return (
     <div
       className={cn(
         "rounded-2xl border bg-card shadow-sm transition-all duration-300",
-        expanded ? "border-primary/30 shadow-md" : "border-border"
+        expanded ? "border-primary/30 shadow-md" : "border-border",
       )}
     >
       {/* Card header */}
@@ -61,8 +93,8 @@ export function DayCard({ dayNumber, dayLabel }: DayCardProps) {
           className={cn(
             "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 transition-colors",
             isFilled
-              ? "bg-teal border-teal text-teal-foreground"
-              : "border-border bg-background text-muted-foreground"
+              ? "bg-ring border-ring text-ring-foreground"
+              : "border-border bg-background text-muted-foreground",
           )}
         >
           {isFilled ? (
@@ -78,14 +110,14 @@ export function DayCard({ dayNumber, dayLabel }: DayCardProps) {
           <p className="text-xs text-muted-foreground">{dayLabel}</p>
         </div>
         {isFilled && (
-          <span className="text-xs font-medium text-teal mr-2">
+          <span className="text-xs font-medium text-ring mr-2">
             {filledCount}/{categories.length}
           </span>
         )}
         <ChevronDown
           className={cn(
             "h-4 w-4 text-muted-foreground transition-transform duration-200",
-            expanded && "rotate-180"
+            expanded && "rotate-180",
           )}
         />
       </button>
@@ -115,8 +147,8 @@ export function DayCard({ dayNumber, dayLabel }: DayCardProps) {
             className={cn(
               "mt-5 w-full rounded-xl py-2.5 text-sm font-semibold transition-all flex items-center justify-center gap-2",
               saved
-                ? "bg-teal text-teal-foreground"
-                : "bg-primary text-primary-foreground hover:bg-lavender/90"
+                ? "bg-ring text-ring-foreground"
+                : "bg-primary text-primary-foreground hover:bg-primary/90",
             )}
           >
             {saved ? (
@@ -134,5 +166,5 @@ export function DayCard({ dayNumber, dayLabel }: DayCardProps) {
         </div>
       )}
     </div>
-  )
+  );
 }
