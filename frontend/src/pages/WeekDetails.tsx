@@ -74,12 +74,12 @@ export default function WeekDetails() {
           <motion.div
             layout
             key={day.id}
-            className="bg-white rounded-2xl shadow-soft mb-4 overflow-hidden"
+            className="bg-white rounded-2xl shadow-soft mb-4"
           >
             {/* HEADER */}
             <div
               onClick={() => toggleDay(day.id)}
-              className="flex justify-between items-center p-5 cursor-pointer hover:bg-primary transition"
+              className={`flex justify-between rounded-t-xl items-center p-5 cursor-pointer hover:bg-primary/15 transition ${isOpen ? "bg-primary/10" : ""}`}
             >
               <div className="flex items-center gap-3">
                 <div
@@ -109,7 +109,7 @@ export default function WeekDetails() {
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="px-5 pb-5 space-y-4"
+                  className="px-5 pb-5 space-y-4 rounded-b-xl border border-primary/20"
                 >
                   {[
                     { label: "Sleep", field: "sleep_notes" },
