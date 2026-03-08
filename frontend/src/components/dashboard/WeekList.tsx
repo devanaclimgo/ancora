@@ -21,9 +21,9 @@ export default function WeekList({ weeks }: WeekListProps) {
 
       <Link
         to="/weeks/new"
-        className="flex items-center gap-3 rounded-2xl border-2 border-dashed border-gray-300 p-5 hover:border-ring-500 hover:bg-ring-50 transition-all group"
+        className="flex items-center gap-3 rounded-2xl border-2 border-dashed border-gray-300 p-5 hover:border-ring/50 hover:bg-ring/50 transition-all group"
       >
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-ring-100 text-ring-600 group-hover:bg-ring-600 group-hover:text-white transition-colors">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-ring/10 text-ring/60 group-hover:bg-ring/60 group-hover:text-white transition-colors">
           <Plus className="h-5 w-5" />
         </div>
 
