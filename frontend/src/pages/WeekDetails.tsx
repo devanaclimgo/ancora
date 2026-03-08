@@ -48,7 +48,7 @@ export default function WeekDetails() {
   return (
     <div className="p-6">
       <h2 className="text-xl font-semibold text-primary mb-2">
-        Week {week.start_date}
+        Semana {week.start_date}
       </h2>
 
       {/* Progress Bar */}
@@ -88,7 +88,7 @@ export default function WeekDetails() {
                   }`}
                 />
                 <h3 className="font-semibold text-primary">
-                  Day {day.day_number}
+                  Dia {day.day_number}
                 </h3>
               </div>
 
