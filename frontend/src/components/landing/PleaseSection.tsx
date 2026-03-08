@@ -120,7 +120,7 @@ export function PleaseSection() {
             {abcItems.map((item) => (
               <div
                 key={item.letter}
-                className="flex items-start gap-4 rounded-xl bg-card p-5 border border-border"
+                className="flex items-start gap-4 rounded-xl bg-card p-5 border border-border hover:scale-105 transition-all duration-300"
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-sm">
                   {item.letter}
