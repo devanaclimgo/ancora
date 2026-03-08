@@ -112,11 +112,11 @@ export default function WeekDetails() {
                   className="px-5 pb-5 space-y-4 rounded-b-xl border border-primary/20"
                 >
                   {[
-                    { label: "Sleep", field: "sleep_notes" },
-                    { label: "Exercise", field: "exercise_notes" },
-                    { label: "Food", field: "food_notes" },
-                    { label: "Health", field: "health_notes" },
-                    { label: "Substances", field: "substances_notes" },
+                    { label: "Sono", field: "sleep_notes" },
+                    { label: "Exercício", field: "exercise_notes" },
+                    { label: "Alimentação", field: "food_notes" },
+                    { label: "Saúde", field: "health_notes" },
+                    { label: "Substâncias", field: "substances_notes" },
                     { label: "Extra", field: "extra_notes" },
                   ].map((section) => (
                     <div key={section.field}>
