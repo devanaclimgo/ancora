@@ -62,7 +62,7 @@ export default function WeekDetails() {
           />
         </div>
         <p className="text-xs text-gray-500 mt-1">
-          {filledDays} of {week.day_entries.length} dias preenchidos
+          {filledDays} de {week.day_entries.length} dias preenchidos
         </p>
       </div>
 
