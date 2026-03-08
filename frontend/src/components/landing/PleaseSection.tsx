@@ -122,7 +122,7 @@ export function PleaseSection() {
                 key={item.letter}
                 className="flex items-start gap-4 rounded-xl bg-card p-5 border border-border"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-sm">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-sm">
                   {item.letter}
                 </div>
                 <div>
