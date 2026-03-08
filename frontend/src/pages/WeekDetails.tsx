@@ -53,12 +53,12 @@ export default function WeekDetails() {
 
       {/* Progress Bar */}
       <div className="mb-6">
-        <div className="w-full h-3 bg-primary rounded-full overflow-hidden">
+        <div className="w-full h-3 bg-secondary rounded-full overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: `${progress}%` }}
             transition={{ duration: 0.6 }}
-            className="h-full bg-primary"
+            className="h-full bg-primary/70"
           />
         </div>
         <p className="text-xs text-gray-500 mt-1">
