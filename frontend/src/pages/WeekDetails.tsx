@@ -46,6 +46,12 @@ export default function WeekDetails() {
 
   const progress = (filledDays / week.day_entries.length) * 100;
 
+  const DateDisplay = new Date(week.start_date).toLocaleDateString("pt-BR", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="sticky top-0 z-40 border-b border-gray-200 bg-white/90 backdrop-blur-md">
@@ -53,9 +59,9 @@ export default function WeekDetails() {
       </div>
       <div className="px-6 mt-6 max-w-3xl mx-auto">
         <h2 className="text-xl font-semibold text-primary mb-2">
-          Semana {week.start_date}
+          Semana {DateDisplay}
         </h2>
-        
+
         {/* Progress Bar */}
         <div className="mb-6">
           <div className="w-full h-3 bg-secondary rounded-full overflow-hidden">
