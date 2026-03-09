@@ -12,6 +12,13 @@ interface WeekListProps {
   weeks: Week[];
 }
 
+{/* TODO: Implement proper date display logic, with the date the user chose */}
+const DateDisplay = new Date().toLocaleDateString("pt-BR", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});
+
 export default function WeekList({ weeks }: WeekListProps) {
   return (
     <div className="space-y-5">
@@ -41,7 +48,7 @@ export default function WeekList({ weeks }: WeekListProps) {
           <WeekCard
             key={week.id}
             id={week.id}
-            startDate={week.start_date}
+            startDate={DateDisplay}
             filledDays={week.filledDays}
           />
         ))}
