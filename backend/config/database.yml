@@ -22,7 +22,7 @@ default: &default
 
 development:
   <<: *default
-  database: ancora_backend_development
+  database: wisemind_backend_development
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -56,7 +56,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: ancora_backend_test
+  database: wisemind_backend_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -87,18 +87,18 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: ancora_backend_production
+    database: wisemind_backend_production
     username: backend
     password: <%= ENV["BACKEND_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
-    database: ancora_backend_production_cache
+    database: wisemind_backend_production_cache
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: ancora_backend_production_queue
+    database: wisemind_backend_production_queue
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: ancora_backend_production_cable
+    database: wisemind_backend_production_cable
     migrations_paths: db/cable_migrate
