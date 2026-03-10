@@ -8,10 +8,10 @@ import {
   Settings,
   LogOut,
   ChevronLeft,
-  Bell,
-  User,
-  Lock,
-  Trash2,
+  // Bell,
+  // User,
+  // Lock,
+  // Trash2,
 } from "lucide-react";
 import { cn } from "../../lib/cn";
 
@@ -20,7 +20,7 @@ interface SliderMenuProps {
   onClose: () => void;
 }
 
-type MenuView = "main" | "calendar" | "weeks" | "support" | "settings";
+type MenuView = "main" | "calendar" | "weeks" | "support" | "settings" | "in-development";
 {/* TODO: criar páginas que faltam, tanto backend como frontend */}
 
 export default function SliderMenu({ open, onClose }: SliderMenuProps) {
@@ -80,7 +80,7 @@ export default function SliderMenu({ open, onClose }: SliderMenuProps) {
           {view === "main" && (
             <nav className="space-y-2">
               <button
-                onClick={() => setView("calendar")}
+                onClick={() => setView("in-development")}
                 className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-gray-100"
               >
                 <CalendarDays className="h-4 w-4" />
@@ -88,7 +88,7 @@ export default function SliderMenu({ open, onClose }: SliderMenuProps) {
               </button>
 
               <button
-                onClick={() => setView("weeks")}
+                onClick={() => setView("in-development")}
                 className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-gray-100"
               >
                 <Layers className="h-4 w-4" />
@@ -96,7 +96,7 @@ export default function SliderMenu({ open, onClose }: SliderMenuProps) {
               </button>
 
               <button
-                onClick={() => setView("support")}
+                onClick={() => setView("in-development")}
                 className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-gray-100"
               >
                 <HelpCircle className="h-4 w-4" />
@@ -104,7 +104,7 @@ export default function SliderMenu({ open, onClose }: SliderMenuProps) {
               </button>
 
               <button
-                onClick={() => setView("settings")}
+                onClick={() => setView("in-development")}
                 className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-gray-100"
               >
                 <Settings className="h-4 w-4" />
@@ -113,7 +113,14 @@ export default function SliderMenu({ open, onClose }: SliderMenuProps) {
             </nav>
           )}
 
-          {view === "settings" && (
+          {
+            view === "in-development" && (
+              <div className="text-center text-gray-500 mt-10">
+                <p className="text-lg">🚧 Em desenvolvimento 🚧</p>
+              </div>
+            )}
+
+          {/* {view === "settings" && (
             <div className="space-y-4">
               <div className="rounded-xl border p-4 flex items-center gap-3">
                 <Bell className="h-4 w-4 text-gray-500" />
@@ -135,7 +142,7 @@ export default function SliderMenu({ open, onClose }: SliderMenuProps) {
                 Excluir conta
               </button>
             </div>
-          )}
+          )} */}
         </div>
 
         {/* Logout */}
