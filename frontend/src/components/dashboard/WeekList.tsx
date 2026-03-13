@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Plus } from "lucide-react";
 import WeekCard from "./WeekCard";
-import { getWeekDisplayLabel } from "../../utils/date";
 
 interface Week {
   id: number;
@@ -42,7 +41,7 @@ export default function WeekList({ weeks }: WeekListProps) {
           <WeekCard
             key={week.id}
             id={week.id}
-            startDate={getWeekDisplayLabel(new Date(week.start_date))}
+            startDate={week.start_date}
             filledDays={week.filledDays}
           />
         ))}
