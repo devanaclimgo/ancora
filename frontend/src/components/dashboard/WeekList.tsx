@@ -12,12 +12,9 @@ interface WeekListProps {
   weeks: Week[];
 }
 
-{/* TODO: Implement proper date display logic, with the date the user chose */}
-const DateDisplay = new Date().toLocaleDateString("pt-BR", {
-  day: "numeric",
-  month: "short",
-  year: "numeric",
-});
+{
+  /* TODO: Implement proper date display logic, with the date the user chose */
+}
 
 export default function WeekList({ weeks }: WeekListProps) {
   return (
@@ -48,11 +45,12 @@ export default function WeekList({ weeks }: WeekListProps) {
           <WeekCard
             key={week.id}
             id={week.id}
-            startDate={DateDisplay}
+            startDate={week.start_date}
             filledDays={week.filledDays}
           />
         ))}
       </div>
+      {/* TODO: adicionar exportação por PDF */}
     </div>
   );
 }
