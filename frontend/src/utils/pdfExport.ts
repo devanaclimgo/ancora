@@ -1,6 +1,6 @@
 import jsPDF from "jspdf"; // creates the document
 import autoTable from "jspdf-autotable"; // draws the table
-import { formattedDate } from "./date";
+import { formattedDate, formatWeekRangeFromString } from "./date";
 
 export function exportWeekToPDF(week: {
   weekNumber: number;
@@ -17,7 +17,7 @@ export function exportWeekToPDF(week: {
 }) {
   const doc = new jsPDF();
 
-  doc.text(`Relatório da Semana ${week.start_date}`, 14, 20);
+  doc.text(`Relatório da Semana ${formatWeekRangeFromString(week.start_date)}`, 14, 20);
 
   doc.setFontSize(8);
   doc.text(
