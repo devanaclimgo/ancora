@@ -128,5 +128,5 @@ export function exportWeekToPDF(week: {
     showHead: "everyPage",
   });
 
-  doc.save(`cartao-diario-${week.start_date}.pdf`);
+  doc.save(`ancora-relatorio-${formatWeekRangeFromString(week.start_date)}.pdf`);
 }
