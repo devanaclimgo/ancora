@@ -45,15 +45,22 @@ export function exportWeekToPDF(week: {
     "Notas Extras",
   ];
 
-  const rows = week.day_entries.map((day) => [
-    formattedDate(day.date),
-    day.sleep_notes,
-    day.health_notes,
-    day.exercise_notes,
-    day.food_notes,
-    day.substances_notes,
-    day.extra_notes,
-  ]);
+  const startDate = new Date(week.start_date);
+
+  const rows = week.day_entries.map((day, index) => {
+    const currentDate = new Date(startDate);
+    currentDate.setDate(startDate.getDate() + index);
+
+    return [
+      formattedDate(currentDate),
+      day.sleep_notes,
+      day.health_notes,
+      day.exercise_notes,
+      day.food_notes,
+      day.substances_notes,
+      day.extra_notes,
+    ];
+  });
 
   autoTable(doc, {
     head: [table_headers],
