@@ -10,7 +10,7 @@ export function exportWeekToPDF(week: {
     health_notes: string;
     exercise_notes: string;
     food_notes: string;
-    substance_notes: string;
+    substances_notes: string;
     extra_notes: string;
   }[];
   start_date: string;
@@ -18,9 +18,6 @@ export function exportWeekToPDF(week: {
   const doc = new jsPDF();
 
   doc.text(`Relatório da Semana ${week.weekNumber}`, 14, 20);
-
-  doc.setFontSize(16);
-  doc.text("Relatório Semanal de Saúde", 14, 15);
 
   doc.setFontSize(10);
   doc.text(`Semana iniciando em: ${week.start_date}`, 14, 22);
@@ -56,7 +53,7 @@ export function exportWeekToPDF(week: {
     day.health_notes,
     day.exercise_notes,
     day.food_notes,
-    day.substance_notes,
+    day.substances_notes,
     day.extra_notes,
   ]);
 
