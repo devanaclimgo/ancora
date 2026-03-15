@@ -19,6 +19,7 @@ export function exportWeekToPDF(week: {
 
   doc.text(`Relatório da Semana ${week.start_date}`, 14, 20);
 
+  doc.setFontSize(8)
   doc.text(
     "Este relatório contém registros diários auto-relatados pelo usuário.",
     14,
@@ -36,11 +37,11 @@ export function exportWeekToPDF(week: {
 
   const table_headers = [
     "Dia",
-    "😴 Sono",
-    "💊 Saúde",
-    "🏃 Exercício",
-    "🍎 Alimentação",
-    "🚫 Substâncias",
+    "Sono",
+    "Saúde",
+    "Exercício",
+    "Alimentação",
+    "Substâncias",
     "Notas Extras",
   ];
 
