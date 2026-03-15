@@ -17,10 +17,7 @@ export function exportWeekToPDF(week: {
 }) {
   const doc = new jsPDF();
 
-  doc.text(`Relatório da Semana ${week.weekNumber}`, 14, 20);
-
-  doc.setFontSize(10);
-  doc.text(`Semana iniciando em: ${week.start_date}`, 14, 22);
+  doc.text(`Relatório da Semana ${week.start_date}`, 14, 20);
 
   doc.text(
     "Este relatório contém registros diários auto-relatados pelo usuário.",
