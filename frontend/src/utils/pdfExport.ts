@@ -19,7 +19,7 @@ export function exportWeekToPDF(week: {
 
   doc.text(`Relatório da Semana ${week.start_date}`, 14, 20);
 
-  doc.setFontSize(8)
+  doc.setFontSize(8);
   doc.text(
     "Este relatório contém registros diários auto-relatados pelo usuário.",
     14,
@@ -55,14 +55,9 @@ export function exportWeekToPDF(week: {
     day.extra_notes,
   ]);
 
-  const tableFooter = [
-    ["Gerado por Âncora - Seu Diário de Saúde Digital", "", "", "", "", "", ""],
-  ];
-
   autoTable(doc, {
     head: [table_headers],
     body: rows,
-    foot: tableFooter,
     styles: {
       fontSize: 8,
       cellPadding: 3,
@@ -101,9 +96,24 @@ export function exportWeekToPDF(week: {
         data.settings.margin.left,
         doc.internal.pageSize.height - 10,
       );
+      const pageHeight = doc.internal.pageSize.height;
+
+      doc.setFontSize(7);
+
+      doc.text(
+        "Gerado por Âncora — Seu Diário de Saúde Digital",
+        14,
+        pageHeight - 6,
+      );
+
+      doc.text(
+        "Os dados são auto-relatados pelo usuário.",
+        doc.internal.pageSize.width - 14,
+        pageHeight - 6,
+        { align: "right" },
+      );
     },
     showHead: "everyPage",
-    showFoot: "everyPage"
   });
 
   doc.save(`cartao-diario-${week.start_date}.pdf`);
