@@ -7,6 +7,7 @@ import { isDayFilled } from "../hooks/days-filled";
 import WeekHeader from "../components/dashboard/WeekHeader";
 import { formatFullDate } from "../utils/date";
 import { useNavigate } from "react-router-dom";
+import { exportWeekToPDF } from "../utils/pdfExport";
 
 export default function WeekDetails() {
   const { id } = useParams();
@@ -59,7 +60,7 @@ export default function WeekDetails() {
       console.error("Erro ao deletar semana:", error);
       alert("Ocorreu um erro ao deletar a semana. Tente novamente.");
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -160,7 +161,13 @@ export default function WeekDetails() {
           );
         })}
 
-        {/* create delete card button */}
+        <button
+          className="w-full flex items-center justify-center gap-2 rounded-xl bg-primary/20 text-gray-900 py-2.5 hover:bg-primary/70 hover:text-gray-200 transition-colors mt-4"
+          onClick={() => exportWeekToPDF(week)}
+        >
+          Exportar em PDF
+        </button>
+
         <button
           className="w-full flex items-center justify-center gap-2 rounded-xl bg-gray-100 text-red-500 py-2.5 hover:bg-red-50 hover:text-red-700 transition-colors mt-4"
           onClick={() => {
