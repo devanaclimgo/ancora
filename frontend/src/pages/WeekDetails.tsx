@@ -12,16 +12,12 @@ import { exportWeekToPDF } from "../utils/pdfExport";
 export default function WeekDetails() {
   const { id } = useParams();
   const [week, setWeek] = useState<any>(null);
-  const [openDays, setOpenDays] = useState<number[]>([]);
+  const [openDay, setOpenDay] = useState<number | null>(null);
   const navigate = useNavigate();
 
   function toggleDay(dayId: number) {
-    setOpenDays((prev) =>
-      prev.includes(dayId)
-        ? prev.filter((id) => id !== dayId)
-        : [...prev, dayId],
-    );
-  }
+  setOpenDay((prev) => (prev === dayId ? null : dayId));
+}
 
   useEffect(() => {
     api.get(`/api/v1/weeks/${id}`).then((res) => {
@@ -88,7 +84,7 @@ export default function WeekDetails() {
         </div>
 
         {week.day_entries.map((day: any) => {
-          const isOpen = openDays.includes(day.id);
+          const isOpen = openDay === (day.id)
           const filled = isDayFilled(day);
 
           return (
