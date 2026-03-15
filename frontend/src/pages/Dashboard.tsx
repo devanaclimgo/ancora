@@ -4,6 +4,7 @@ import SliderMenu from "../components/dashboard/SliderMenu";
 import DashboardHeader from "../components/dashboard/DashboardHeader";
 import WeekList from "../components/dashboard/WeekList";
 import { isDayFilled } from "../hooks/days-filled";
+import { useNavigate } from "react-router-dom";
 
 type DayEntry = {
   id: number;
@@ -21,6 +22,7 @@ export default function Dashboard() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [weeks, setWeeks] = useState<ApiWeek[]>([]);
   const [apiError, setApiError] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     api
@@ -29,12 +31,12 @@ export default function Dashboard() {
       .catch((err) => {
         if (err.response?.status === 401) {
           localStorage.removeItem("token");
-          window.location.href = "/";
+          navigate("/");
         } else {
           setApiError(true);
         }
       });
-  }, []);
+  }, [navigate]);
 
   if (apiError) {
     return (
