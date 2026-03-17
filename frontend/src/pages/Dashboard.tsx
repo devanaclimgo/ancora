@@ -25,9 +25,6 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    console.log("TOKEN:", token);
-
     api
       .get("/api/v1/weeks")
       .then((res) => setWeeks(res.data))
