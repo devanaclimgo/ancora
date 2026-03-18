@@ -129,7 +129,7 @@ export default function Login() {
             hover:bg-primary/90 active:scale-95
             transition-all duration-200"
           >
-            {loading ? "Logging in..." : "Login"}
+            {loading ? "Entrando..." : "Entrar"}
           </button>
 
           <p className="text-sm text-center mt-6 text-gray-500">

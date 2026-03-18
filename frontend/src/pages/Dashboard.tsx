@@ -41,7 +41,7 @@ export default function Dashboard() {
   if (apiError) {
     return (
       <div className="p-6 text-center text-red-500">
-        Could not load your weeks.
+        Não conseguimos carregar suas semanas.
       </div>
     );
   }
