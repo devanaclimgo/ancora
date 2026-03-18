@@ -28,10 +28,11 @@ export default class ErrorBoundary extends Component<Props, State> {
         <div className="min-h-screen flex items-center justify-center p-6">
           <div className="bg-white p-8 rounded-2xl shadow-soft text-center max-w-sm">
             <h2 className="text-lg font-semibold text-primary mb-3">
-              Oh não! Algo deu errado.
+              Oops... algo saiu do esperado 😅
             </h2>
             <p className="text-sm text-gray-500 mb-4">
-              Não conseguimos carregar suas semanas.
+              Tente recarregar a página. Se continuar, pode ser instabilidade
+              temporária.
             </p>
             <button
               onClick={() => window.location.reload()}
