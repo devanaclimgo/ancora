@@ -5,6 +5,7 @@ import DashboardHeader from "../components/dashboard/DashboardHeader";
 import WeekList from "../components/dashboard/WeekList";
 import { isDayFilled } from "../hooks/days-filled";
 import { useNavigate } from "react-router-dom";
+import ErrorState from "../components/ErrorState";
 
 type DayEntry = {
   id: number;
@@ -33,7 +34,7 @@ export default function Dashboard() {
         const res = await api.get("/api/v1/weeks");
         setWeeks(res.data);
         setApiError(false);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (err: any) {
         if (err.response?.status === 401) {
           localStorage.removeItem("token");
@@ -83,9 +84,10 @@ export default function Dashboard() {
   // erro real
   if (apiError) {
     return (
-      <div className="p-6 text-center text-red-500">
-        Não conseguimos carregar suas semanas.
-      </div>
+      <ErrorState
+        message="Não conseguimos carregar suas semanas."
+        onRetry={() => window.location.reload()}
+      />
     );
   }
 
