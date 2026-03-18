@@ -20,4 +20,6 @@ Rails.application.routes.draw do
       resources :day_entries, only: [:update]
     end
   end
+
+  match '*path', via: :options, to: proc { [200, { 'Content-Type' => 'text/plain' }, ['OK']] }
 end
