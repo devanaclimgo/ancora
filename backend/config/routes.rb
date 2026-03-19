@@ -29,4 +29,6 @@ Rails.application.routes.draw do
       "Access-Control-Allow-Headers" => "Origin, Content-Type, Accept, Authorization",
     }, [""]]
   }
+
+  root to: proc { [200, {}, ["ok"]] }
 end
