@@ -20,6 +20,8 @@ Bundler.require(*Rails.groups)
 
 module Backend
   class Application < Rails::Application
+    puts "PORT ENV: #{ENV['PORT']}"
+    
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.1
 
