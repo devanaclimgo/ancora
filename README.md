@@ -44,7 +44,7 @@ Instead of trying to “remember everything,” Âncora gives you a **clear, str
 -	Build consistency over time
 -	Identify behavioral patterns
 
-### 📄 PDF Export (Planned / In Progress)
+### 📄 PDF Export
 
 -	Export weekly data into a clean PDF report
 -	Share directly with:
