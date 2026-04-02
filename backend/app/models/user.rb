@@ -8,6 +8,9 @@ class User < ApplicationRecord
 
   has_many :weeks, -> { order(:created_at) }, dependent: :destroy
 
+  validates :email, presence: true
+  validates :username, presence: true
+
   attr_writer :login
 
   def login
