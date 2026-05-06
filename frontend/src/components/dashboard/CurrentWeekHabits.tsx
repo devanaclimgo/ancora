@@ -91,6 +91,13 @@ export function CurrentWeekHabits({ week }: { week: ApiWeek }) {
     return map;
   }
 
+  function getDayColor(count: number) {
+    if (!count) return "bg-gray-100";
+    if (count <= 2) return "bg-red-400";
+    if (count <= 4) return "bg-yellow-400";
+    return "bg-green-500";
+  }
+
   return (
     <div className="rounded-2xl bg-card border border-border shadow-sm overflow-hidden">
       {/* Header */}
