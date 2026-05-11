@@ -3,7 +3,6 @@ import { cn } from "../../lib/cn";
 import api from "../../api/axios";
 import { type ApiWeek } from "../../pages/Dashboard";
 import { Moon, Salad, Dumbbell, ShieldOff, HeartPulse } from "lucide-react";
-import axios from "axios";
 
 const defaultHabits = [
   { name: "8h de sono", icon: Moon },
@@ -48,21 +47,23 @@ export function CurrentWeekHabits({ week }: { week: ApiWeek }) {
           }
         : habit,
     );
+
     setHabits(updated);
+
+    const habit = updated[habitIndex];
+    const done = habit.days[dayIndex];
+
+    const date = new Date(week.start_date);
+    date.setDate(date.getDate() + dayIndex);
+
     try {
-      const res = await api.patch(`/api/v1/weeks/${week.id}`, {
-        week: { habits: updated },
+      await api.post("/api/v1/habit_entries", {
+        date: date.toISOString().split("T")[0],
+        habit_name: habit.name,
+        done,
       });
-
-      setHabits(res.data.habits);
-
-      console.log("SALVOU:", res.data);
     } catch (err) {
-      if (axios.isAxiosError(err)) {
-        console.error(err.response?.data);
-      } else {
-        console.error(err);
-      }
+      console.error(err);
     }
   };
 
