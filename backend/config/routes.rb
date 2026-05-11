@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :weeks, only: [:index, :show, :create, :update, :destroy]
       resources :day_entries, only: [:update]
+      resources :habit_entries, only: [:index, :create]
     end
   end
 
